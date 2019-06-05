@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content="10" charset="utf-8">
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        h2 {
+            display: inline-block;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            line-height: 1.5;
+            width: 100%;
+        }
+
+        #table_header th {
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            color: #369;
+            border-bottom: 3px solid #036;
+        }
+
+        #table_body th {
+            width: 150px;
+            padding: 10px;
+            font-weight: bold;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+            background: #f3f6f7;
+        }
+
+        table td {
+            width: 350px;
+            padding: 10px;
+            vertical-align: top;
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1 style="margin-bottom: 20px">
+    <center>YOU-NO-ONE DASHBOARD</center>
+</h1>
+
+<center style="margin-bottom: 50px">
+    <h2>MAIN PAGE</h2>
+</center>
+
+<hr>
+
+<table>
+    <tr id="table_header">
+        <th>Username</th>
+        <th>Current day no.</th>
+        <th>Heartbeat-phone</th>
+        <th>Heartbeat-watch</th>
+        <th>Data loaded-phone (KB)</th>
+        <th>Data loaded-watch (KB)</th>
+        <th>Phone no.</th>
+        <th>Registration date</th>
+    </tr>
+
+    {% for participant in participants %}
+        <tr id="table_body">
+            <td>{{ participant.username }}</td>
+            <td>{{ participant.current_day_num}}</td>
+            <td>{{ participant.heartbeat_smartphone_diff }}</td>
+            <td>{{ participant.heartbeat_smartwatch_diff }}</td>
+            <td>{{ participant.phone_data_size}}</td>
+            <td>{{ participant.watch_data_size}}</td>
+            <td>{{ participant.phone_num }}</td>
+            <td>{{ participant.register_date }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
